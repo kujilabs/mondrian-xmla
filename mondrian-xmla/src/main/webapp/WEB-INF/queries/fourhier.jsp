@@ -3,8 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 
 
-<jp:mondrianQuery id="query01" jdbcDriver="org.apache.derby.jdbc.EmbeddedDriver" jdbcUrl="jdbc:derby:classpath:/foodmart" catalogUri="/WEB-INF/queries/FoodMart.xml"
-   jdbcUser="sa" jdbcPassword="sa" connectionPooling="false">
+
+<jp:mondrianQuery id="query01" jdbcDriver="com.mysql.jdbc.Driver" jdbcUrl="jdbc:mysql://localhost/foodmart?user=foodmart&password=foodmart" catalogUri="/WEB-INF/queries/FoodMart.xml">
 select {[Measures].[Unit Sales], [Measures].[Store Cost], [Measures].[Store Sales]} on columns,
 {([Gender].[All Gender], [Marital Status].[All Marital Status],
   [Customers].[All Customers],
