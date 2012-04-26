@@ -20,7 +20,7 @@
 
 <!-- this sets the "MdxParameter" parameter of paramquery01 -->
 <jp:setParam query="${paramquery01}" httpParam="param" mdxParam="ProductMember">
-<jp:mondrianQuery id="paramquery01" jdbcDriver="sun.jdbc.odbc.JdbcOdbcDriver" jdbcUrl="jdbc:odbc:MondrianFoodMart" catalogUri="/WEB-INF/queries/FoodMart.xml">
+<jp:mondrianQuery id="paramquery01" jdbcDriver="com.mysql.jdbc.Driver" jdbcUrl="jdbc:mysql://localhost/foodmart?user=foodmart&password=foodmart" catalogUri="/WEB-INF/queries/FoodMart.xml">
 select
   {[Measures].[Unit Sales], [Measures].[Store Cost], [Measures].[Store Sales]} on columns,
   {Parameter("ProductMember", [Product], [Product].[All Products].[Food], "wat willste?").children} ON rows
