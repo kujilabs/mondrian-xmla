@@ -11,8 +11,8 @@ You must accept the terms of that agreement to use this software.
 -->
 
 <!DOCTYPE web-app
-    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-    "http://java.sun.com/dtd/web-app_2_3.dtd">
+PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
 
@@ -86,12 +86,12 @@ You must accept the terms of that agreement to use this software.
   <servlet>
     <servlet-name>MondrianXmlaServlet</servlet-name>
     <servlet-class>mondrian.xmla.impl.DefaultXmlaServlet</servlet-class>
-    <!--
+
     <init-param>
       <param-name>DataSourcesConfig</param-name>
       <param-value>/datasources.xml</param-value>
     </init-param>
-    -->
+
   </servlet>
 
 
