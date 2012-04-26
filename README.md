@@ -22,7 +22,7 @@ Loading the demo data
 
 ### Deploy 
 
-`mvn tomcat:deploy`
+`mvn cargo:deploy`
 
 
 
