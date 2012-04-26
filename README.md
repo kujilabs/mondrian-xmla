@@ -16,6 +16,8 @@ java -cp "/Users/stellard/mondrian/lib/commons-logging-1.0.4.jar:/Users/stellard
 INSTALLATION
 
 brew install maven
+
+
 mvn build
 
 
