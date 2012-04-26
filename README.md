@@ -1,4 +1,4 @@
-mondrian-depolyment
+mondrian-xmla
 ===================
 
 Loading the demo data
