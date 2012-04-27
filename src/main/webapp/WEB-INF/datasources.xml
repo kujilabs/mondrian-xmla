@@ -34,7 +34,7 @@
         <!-- 
              The URL of the servlet.
         -->
-        <URL>http://localhost:8080/mondrian/xmla</URL>
+        <URL>http://localhost:8080/mondrian-xmla/xmla</URL>
 
         <!--
              Mondrian connect string for the data source. If this data

@@ -57,7 +57,7 @@
                     <row>
                         <DataSourceName>FoodMart</DataSourceName>
                         <DataSourceDescription>Mondrian FoodMart data source</DataSourceDescription>
-                        <URL>http://localhost:8080/mondrian/xmla</URL>
+                        <URL>http://localhost:8080/mondrian-xmla/xmla</URL>
                         <DataSourceInfo>FoodMart</DataSourceInfo>
                         <ProviderName>Mondrian</ProviderName>
                         <ProviderType>MDP</ProviderType>
@@ -2711,7 +2711,7 @@
                     <row>
                         <DataSourceName>FoodMart</DataSourceName>
                         <DataSourceDescription>Mondrian FoodMart data source</DataSourceDescription>
-                        <URL>http://localhost:8080/mondrian/xmla</URL>
+                        <URL>http://localhost:8080/mondrian-xmla/xmla</URL>
                         <DataSourceInfo>FoodMart</DataSourceInfo>
                         <ProviderName>Mondrian</ProviderName>
                         <ProviderType>MDP</ProviderType>
