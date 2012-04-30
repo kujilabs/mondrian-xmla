@@ -11724,7 +11724,7 @@ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
                     <row>
                         <DataSourceName>FoodMart</DataSourceName>
                         <DataSourceDescription>Mondrian FoodMart data source</DataSourceDescription>
-                        <URL>http://localhost:8080/mondrian-xmla/xmla</URL>
+                        <URL>http://localhost:8080/mondrian/xmla</URL>
                         <DataSourceInfo>FoodMart</DataSourceInfo>
                         <ProviderName>Mondrian</ProviderName>
                         <ProviderType>MDP</ProviderType>

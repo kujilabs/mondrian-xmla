@@ -11,8 +11,8 @@ You must accept the terms of that agreement to use this software.
 -->
 
 <!DOCTYPE web-app
-PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-"http://java.sun.com/dtd/web-app_2_3.dtd">
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
 
@@ -27,7 +27,7 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
 
   <context-param>
     <param-name>connectString</param-name>
-    <param-value>@mondrian.webapp.connectString@</param-value>
+		<param-value>@mondrian.webapp.connectString@</param-value> 
   </context-param>
 
   <!-- optional
@@ -79,19 +79,22 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
     <servlet-class>mondrian.web.servlet.MdxQueryServlet</servlet-class>
     <init-param>
       <param-name>connectString</param-name>
-      <param-value>@mondrian.webapp.connectString@</param-value>
+			<param-value>@mondrian.webapp.connectString@</param-value> 
     </init-param>
   </servlet>
 
   <servlet>
     <servlet-name>MondrianXmlaServlet</servlet-name>
-    <servlet-class>mondrian.xmla.impl.DefaultXmlaServlet</servlet-class>
-
-    <init-param>
+    <servlet-class>mondrian.xmla.impl.MondrianXmlaServlet</servlet-class>
+    
+    <!-- <init-param>
       <param-name>DataSourcesConfig</param-name>
       <param-value>/datasources.xml</param-value>
-    </init-param>
-
+      <param-name>connectString</param-name>
+      <param-value>Provider=mondrian;Jdbc=jdbc:mysql://localhost/foodmart?user=foodmart&#38;password=foodmart;Catalog=/WEB-INF/queries/FoodMart.xml;JdbcDrivers=com.mysql.jdbc.Driver;</param-value>
+    </init-param> 
+		-->
+   
   </servlet>
 
 

@@ -8,7 +8,7 @@
     * The dataSource attribute is necessary for Mondrian's XMLA.
 -->
 <jp:xmlaQuery id="query01"
-    uri="http://localhost:8080/mondrian-xmla/xmla"
+    uri="http://localhost:8080/mondrian/xmla"
     dataSource="Provider=Mondrian;DataSource=MondrianFoodMart;"
   	catalog="FoodMart">
 select
