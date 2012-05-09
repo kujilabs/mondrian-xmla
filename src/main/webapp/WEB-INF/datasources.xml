@@ -9,27 +9,17 @@
   == You must accept the terms of that agreement to use this software.
   -->
 <DataSources>
-    <!-- 
-         A data source is a collection of logically related Mondrian
-         catalogs.
 
-         The XMLA specification allows an XMLA provider to have
-         multiple data sources, but some clients, particularly ones
-         based on ADOMD.NET such as Simba's O2X client and Pentaho
-         Spreadsheet Services, can only connect to the first declared
-         data source. Therefore, we recommend that you use a single
-         data source, containing multiple catalogs if necessary.
-     -->
     <DataSource>
         <!--
              Name of the data source.
         -->
-        <DataSourceName>Provider=Mondrian;DataSource=MondrianFoodMart;</DataSourceName>
+        <DataSourceName>Provider=Mondrian;DataSource=MondrianHusky;</DataSourceName>
 
         <!--
              Description of the data source.
         -->
-        <DataSourceDescription>Mondrian FoodMart Data Warehouse</DataSourceDescription>
+        <DataSourceDescription>Husky Data Warehouse</DataSourceDescription>
 
         <!-- 
              The URL of the servlet.
@@ -45,7 +35,7 @@
              Catalogs can override the connect string with their own
              <DataSourceInfo> element.
           -->
-        <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:mysql://localhost/foodmart?user=foodmart&amp;password=foodmart;JdbcUser=foodmart;JdbcDrivers=com.mysql.jdbc.Driver;Catalog=/WEB-INF/queries/FoodMart.xml</DataSourceInfo>
+        <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://localhost:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver;Catalog=/WEB-INF/queries/Husky.xml</DataSourceInfo>
 
         <!-- 
              Provider name must be 'Mondrian'.
@@ -72,7 +62,7 @@
                 schema.xml file, and must be unique across all data
                 sources defined in this datasources.xml file.
             -->
-            <Catalog name="FoodMart">
+            <Catalog name="Husky">
                 <!--
                      Mondrian connect string for the data source. This
                      element is optional; if specified, it overrides the
@@ -87,7 +77,7 @@
                 <!-- 
                     URI of the schema definition file.
                 -->
-                <Definition>/WEB-INF/queries/FoodMart.xml</Definition>
+                <Definition>/WEB-INF/queries/Husky.xml</Definition>
             </Catalog>
         </Catalogs>
 

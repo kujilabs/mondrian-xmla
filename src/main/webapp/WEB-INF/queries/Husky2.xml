@@ -1,0 +1,28 @@
+<Schema name="Husky">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Date">
+    <Hierarchy name="Financial Year" visible="true" hasAll="true" primaryKey="id">
+      <Table name="date_dimension" schema="public">
+      </Table>
+      <Level name="Year" visible="true" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Quarter" visible="true" column="quarter" nameColumn="quarter_and_year" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+      </Level>
+      <Level name="Month" visible="true" column="month_number" nameColumn="month_name" ordinalColumn="month_number" type="Numeric" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Entity">
+  </Dimension>
+  <Cube name="Carbon" visible="true" cache="true" enabled="true">
+    <Table name="carbon_facts" schema="public">
+    </Table>
+    <DimensionUsage source="Entity" name="Entity" visible="true" foreignKey="entity_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Date" name="Date" visible="true" foreignKey="date_id" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="Scope 1 Carbon" column="scope_1_carbon" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Scope 2 Carbon" column="scope_2_carbon" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

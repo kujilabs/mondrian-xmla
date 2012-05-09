@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<Schema name="Husky">
+  <Dimension name="Date" type="TimeDimension" highCardinality="false">
+    <Hierarchy hasAll="false" primaryKey="id">
+      <Table name="date_dimension" schema="public"/>
+      <Level name="Year" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears"/>
+      <Level name="Quarter" column="quarter" nameColumn="quarter_and_year" uniqueMembers="false" levelType="TimeQuarters"/>
+      <Level name="Month" column="month_number" type="Numeric" nameColumn="month_name" uniqueMembers="false" levelType="TimeMonths"/>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Entity" highCardinality="false">
+    <Hierarchy hasAll="true" allMemberName="All Entities" primaryKey="id">
+      <Table name="entity_dimension"/>
+      <Level name="Name" column="name" uniqueMembers="true"/>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Carbon">
+    <Table name="carbon_facts" schema="public"/>
+    <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
+    <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
+    <Measure name="Scope 1 Carbon" column="scope_1_carbon" aggregator="sum"/>
+    <Measure name="Scope 2 Carbon" column="scope_2_carbon" aggregator="sum"/>
+  </Cube>
+</Schema>
