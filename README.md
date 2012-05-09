@@ -18,14 +18,12 @@ Loading the demo data
 
 `brew install maven`
 
-`mvn build`
 
 ### Deploy 
 
-`mvn cargo:deploy`
+`mvn tomcat:deploy`
 
-
-
+`mvn tomcat:redeploy`
 
 
 
