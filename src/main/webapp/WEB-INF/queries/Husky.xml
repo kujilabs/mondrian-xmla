@@ -14,11 +14,44 @@
       <Level name="Name" column="name" uniqueMembers="true"/>
     </Hierarchy>
   </Dimension>
+  <Dimension name="Category" highCardinality="false">
+    <Hierarchy hasAll="true" allMemberName="All Categories" primaryKey="id">
+      <Table name="category_dimension"/>
+      <Level name="Category ID" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+        <Closure parentColumn="parent_id" childColumn="child_id">
+          <Table name="category_hierarchy_bridge"/>
+        </Closure>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Subject" highCardinality="false">
+    <Hierarchy hasAll="true" allMemberName="All Subjects" primaryKey="id">
+      <Table name="subject_dimension"/>
+      <Level name="Subject ID" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+        <Closure parentColumn="parent_id" childColumn="child_id">
+          <Table name="subject_hierarchy_bridge"/>
+        </Closure>
+      </Level>
+    </Hierarchy>
+  </Dimension>
   <Cube name="Carbon">
-    <Table name="carbon_facts" schema="public"/>
+    <Table name="conversion_facts" schema="public"/>
     <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
     <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
-    <Measure name="Scope 1 Carbon" column="scope_1_carbon" aggregator="sum"/>
-    <Measure name="Scope 2 Carbon" column="scope_2_carbon" aggregator="sum"/>
+    <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
+    <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
+    <Measure name="Amount" column="amount" aggregator="sum"/>
+    <Measure name="Scope 1 Carbon Factor" column="scope_1_carbon_factor" aggregator="avg" visible="false"/>
+    <Measure name="Scope 2 Carbon Factor" column="scope_2_carbon_factor" aggregator="avg" visible="false"/>
+    <Measure name="Scope 3 Carbon Factor" column="scope_3_carbon_factor" aggregator="avg" visible="false"/>
+    <CalculatedMember name="Scope 1 Carbon" dimension="Measures" formatString="#,##0.00">
+      <Formula>[Measures].[Scope 1 Carbon Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Scope 2 Carbon" dimension="Measures" formatString="#,##0.00">
+      <Formula>[Measures].[Scope 2 Carbon Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Scope 3 Carbon" dimension="Measures" formatString="#,##0.00">
+      <Formula>[Measures].[Scope 3 Carbon Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
   </Cube>
 </Schema>
