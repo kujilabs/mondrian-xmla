@@ -35,7 +35,7 @@
              Catalogs can override the connect string with their own
              <DataSourceInfo> element.
           -->
-        <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://localhost:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver;Catalog=/WEB-INF/queries/Husky.xml</DataSourceInfo>
+        <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://localhost:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver;Catalog=/WEB-INF/Husky.xml</DataSourceInfo>
 
         <!-- 
              Provider name must be 'Mondrian'.
@@ -77,7 +77,7 @@
                 <!-- 
                     URI of the schema definition file.
                 -->
-                <Definition>/WEB-INF/queries/Husky.xml</Definition>
+                <Definition>/WEB-INF/Husky.xml</Definition>
             </Catalog>
         </Catalogs>
 
