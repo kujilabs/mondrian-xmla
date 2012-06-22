@@ -37,7 +37,7 @@
           -->
         <!-- <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://localhost:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver;Catalog=/WEB-INF/Husky.xml</DataSourceInfo>-->
         <!-- <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://10.0.2.2:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver</DataSourceInfo>-->
-        <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://ec2-23-23-234-207.compute-1.amazonaws.com:5432/d37cvhomogku7b?ssl=true;JdbcPassword=lCFtZSlXW0D-XzddewQHA0nKDw;JdbcUser=cesrzsxrorlgke;JdbcDrivers=org.postgresql.Driver</DataSourceInfo>
+        <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://ec2-23-23-234-207.compute-1.amazonaws.com:5432/d37cvhomogku7b?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory;JdbcPassword=lCFtZSlXW0D-XzddewQHA0nKDw;JdbcUser=cesrzsxrorlgke;JdbcDrivers=org.postgresql.Driver</DataSourceInfo>
         <!-- 
              Provider name must be 'Mondrian'.
         -->
