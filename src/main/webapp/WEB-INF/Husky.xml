@@ -9,7 +9,7 @@
     </Hierarchy>
   </Dimension>
   <Dimension name="Entity" highCardinality="false">
-    <Hierarchy hasAll="true" allMemberName="All Entities" primaryKey="id">
+    <Hierarchy hasAll="false" primaryKey="id">
       <Table name="entity_dimension"/>
       <Level name="Account Name" column="account_name" uniqueMembers="true"/>
       <Level name="Name" column="name"/>
@@ -18,7 +18,7 @@
   <Dimension name="Category" highCardinality="false">
     <Hierarchy hasAll="true" allMemberName="All Categories" primaryKey="id">
       <Table name="category_dimension"/>
-      <Level name="Category ID" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Category Path" column="id" nameColumn="path_name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="category_hierarchy_bridge"/>
         </Closure>
@@ -28,7 +28,7 @@
   <Dimension name="Subject" highCardinality="false">
     <Hierarchy hasAll="true" allMemberName="All Subjects" primaryKey="id">
       <Table name="subject_dimension"/>
-      <Level name="Subject ID" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Subject Path" column="id" nameColumn="path_name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="subject_hierarchy_bridge"/>
         </Closure>
