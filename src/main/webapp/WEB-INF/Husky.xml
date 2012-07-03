@@ -11,9 +11,8 @@
   <Dimension name="Entity" highCardinality="false">
     <Hierarchy hasAll="true" allMemberName="All Entities" primaryKey="id">
       <Table name="entity_dimension"/>
-      <Level name="Name" column="name" uniqueMembers="true">
-        <Property name="Account Name" column="account_name"/>
-      </Level>
+      <Level name="Account Name" column="account_name" uniqueMembers="true"/>
+      <Level name="Name" column="name"/>
     </Hierarchy>
   </Dimension>
   <Dimension name="Category" highCardinality="false">
