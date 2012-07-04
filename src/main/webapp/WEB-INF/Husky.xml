@@ -1,15 +1,9 @@
 <?xml version="1.0"?>
 <Schema name="Husky">
   <Dimension name="Date" type="TimeDimension" highCardinality="false">
-    <Hierarchy name="Calendar" hasAll="false" primaryKey="id">
+    <Hierarchy hasAll="false" primaryKey="id">
       <Table name="date_dimension" schema="public"/>
       <Level name="Year" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears"/>
-      <Level name="Month" column="month_number" type="Numeric" nameColumn="month_name" uniqueMembers="false" levelType="TimeMonths"/>
-    </Hierarchy>
-    <Hierarchy name="Financial" hasAll="false" primaryKey="id">
-      <Table name="date_dimension" schema="public"/>
-      <Level name="Year" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears"/>
-      <Level name="Quarter" column="quarter" nameColumn="quarter" uniqueMembers="false" levelType="TimeQuarters"/>
       <Level name="Month" column="month_number" type="Numeric" nameColumn="month_name" uniqueMembers="false" levelType="TimeMonths"/>
     </Hierarchy>
   </Dimension>
@@ -23,7 +17,7 @@
   <Dimension name="Category" highCardinality="false">
     <Hierarchy hasAll="true" allMemberName="All Categories" primaryKey="id">
       <Table name="category_dimension"/>
-      <Level name="Category Path" column="id" nameColumn="path_name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Category Name" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="category_hierarchy_bridge"/>
         </Closure>
@@ -33,7 +27,7 @@
   <Dimension name="Subject" highCardinality="false">
     <Hierarchy hasAll="true" allMemberName="All Subjects" primaryKey="id">
       <Table name="subject_dimension"/>
-      <Level name="Subject Path" column="id" nameColumn="path_name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Subject Name" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="subject_hierarchy_bridge"/>
         </Closure>
