@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <Schema name="Husky">
   <Dimension name="Date" type="TimeDimension" highCardinality="false">
+    <Hierarchy name="Calendar" hasAll="false" primaryKey="id">
+      <Table name="date_dimension" schema="public"/>
+      <Level name="Year" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears"/>
+      <Level name="Month" column="month_number" type="Numeric" nameColumn="month_name" uniqueMembers="false" levelType="TimeMonths"/>
+    </Hierarchy>
     <Hierarchy name="Financial" hasAll="false" primaryKey="id">
       <Table name="date_dimension" schema="public"/>
       <Level name="Year" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears"/>
       <Level name="Quarter" column="quarter" nameColumn="quarter" uniqueMembers="false" levelType="TimeQuarters"/>
-      <Level name="Month" column="month_number" type="Numeric" nameColumn="month_name" uniqueMembers="false" levelType="TimeMonths"/>
-    </Hierarchy>
-    <Hierarchy name="Calendar" hasAll="false" primaryKey="id">
-      <Table name="date_dimension" schema="public"/>
-      <Level name="Year" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears"/>
       <Level name="Month" column="month_number" type="Numeric" nameColumn="month_name" uniqueMembers="false" levelType="TimeMonths"/>
     </Hierarchy>
   </Dimension>
