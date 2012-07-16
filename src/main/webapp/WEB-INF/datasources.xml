@@ -84,6 +84,30 @@
                     URI of the schema definition file.
                 -->
             </Catalog>
+
+            <Catalog name="HuskyTest">
+              <!--
+                     Mondrian connect string for the data source. This
+                     element is optional; if specified, it overrides the
+                     data source's <DataSourceInfo> element. Typically,
+                     you would use this element if the catalogs have
+                     different JDBC data sources.
+                 -->
+                <!--
+                <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:odbc:MondrianFoodMart;JdbcDrivers=sun.jdbc.odbc.JdbcOdbcDriver</DataSourceInfo>
+                 -->
+              <!-- <DataSourceDescription>Husky Data Warehouse</DataSourceDescription>-->
+              <!-- <DataSourceName>Provider=Mondrian;DataSource=DataSource=jdbc/postgres</DataSourceName>-->
+              <DataSourceInfo>Provider=mondrian;DataSource=java:comp/env/jdbc/huskydev;Catalog=/WEB-INF/HuskyTest.xml;</DataSourceInfo>
+              <Definition>/WEB-INF/HuskyTest.xml</Definition>
+              <!-- <DataSourceName>Provider=Mondrian;DataSource=jdbc/postgres;</DataSourceName>-->
+
+              <!-- <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://10.0.2.2:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver</DataSourceInfo>-->
+                <!-- 
+                    URI of the schema definition file.
+                -->
+            </Catalog>
+
     </Catalogs>
 
   </DataSource>

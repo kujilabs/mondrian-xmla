@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<Schema name="Husky">
+  <Dimension name="Date" type="TimeDimension" highCardinality="false">
+    <Hierarchy hasAll="false" primaryKey="id">
+      <Table name="date_dimension" schema="public"/>
+      <Level name="Year" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears"/>
+      <Level name="Quarter" column="quarter" nameColumn="quarter_and_year" uniqueMembers="false" levelType="TimeQuarters"/>
+      <Level name="Month" column="month_number" type="Numeric" nameColumn="month_name" uniqueMembers="false" levelType="TimeMonths"/>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Entity" highCardinality="false">
+    <Hierarchy hasAll="true" allMemberName="All Entities" primaryKey="id">
+      <Table name="entity_dimension"/>
+      <Level name="Name" column="name" uniqueMembers="true">
+        <Property name="Account Name" column="account_name"/>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Category" highCardinality="false">
+    <Hierarchy hasAll="true" allMemberName="All Categories" primaryKey="id">
+      <Table name="category_dimension"/>
+      <Level name="Category ID" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+        <Closure parentColumn="parent_id" childColumn="child_id">
+          <Table name="category_hierarchy_bridge"/>
+        </Closure>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension name="Subject" highCardinality="false">
+    <Hierarchy hasAll="true" allMemberName="All Subjects" primaryKey="id">
+      <Table name="subject_dimension"/>
+      <Level name="Subject ID" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+        <Closure parentColumn="parent_id" childColumn="child_id">
+          <Table name="subject_hierarchy_bridge"/>
+        </Closure>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Carbon">
+    <Table name="conversion_facts" schema="public"/>
+    <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
+    <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
+    <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
+    <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
+    <Measure name="Amount" column="amount" aggregator="sum"/>
+    <Measure name="Number Factor" column="number_factor" aggregator="avg" visible="false"/>
+    <Measure name="Mass Factor" column="mass_factor" aggregator="avg" visible="false"/>
+    <Measure name="Volume Factor" column="volume_factor" aggregator="avg" visible="false"/>
+    <Measure name="Area Factor" column="area_factor" aggregator="avg" visible="false"/>
+    <Measure name="Distance Factor" column="distance_factor" aggregator="avg" visible="false"/>
+    <Measure name="Energy Factor" column="energy_factor" aggregator="avg" visible="false"/>
+    <Measure name="Scope 1 Carbon Factor" column="scope_1_carbon_factor" aggregator="avg" visible="false"/>
+    <Measure name="Scope 2 Carbon Factor" column="scope_2_carbon_factor" aggregator="avg" visible="false"/>
+    <Measure name="Scope 3 Carbon Factor" column="scope_3_carbon_factor" aggregator="avg" visible="false"/>
+    <Measure name="Expense Factor" column="expense_factor" aggregator="avg" visible="false"/>
+    <Measure name="Revenue Factor" column="revenue_factor" aggregator="avg" visible="false"/>
+    <CalculatedMember name="Number" dimension="Measures">
+      <Formula>[Measures].[Number Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Mass" dimension="Measures">
+      <Formula>[Measures].[Mass Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Area" dimension="Measures">
+      <Formula>[Measures].[Area Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Volume" dimension="Measures">
+      <Formula>[Measures].[Volume Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Distance" dimension="Measures">
+      <Formula>[Measures].[Distance Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Energy" dimension="Measures">
+      <Formula>[Measures].[Energy Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Scope 1 Carbon" dimension="Measures">
+      <Formula>[Measures].[Scope 1 Carbon Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Scope 2 Carbon" dimension="Measures">
+      <Formula>[Measures].[Scope 2 Carbon Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Scope 3 Carbon" dimension="Measures">
+      <Formula>[Measures].[Scope 3 Carbon Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Expense" dimension="Measures">
+      <Formula>[Measures].[Expense Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Revenue" dimension="Measures">
+      <Formula>[Measures].[Revenue Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Net Profit" dimension="Measures">
+      <Formula>[Measures].[Revenue] - [Measures].[Expense]</Formula>
+    </CalculatedMember>
+  </Cube>
+</Schema>
