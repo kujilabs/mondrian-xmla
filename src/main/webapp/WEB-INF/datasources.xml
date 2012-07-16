@@ -14,12 +14,12 @@
     <!--
              Name of the data source.
         -->
-        <DataSourceName>Provider=Mondrian;DataSource=DataSource=jdbc/postgres</DataSourceName>
+        <DataSourceName></DataSourceName>
 
         <!--
              Description of the data source.
         -->
-        <DataSourceDescription>Husky Data Warehouse</DataSourceDescription>
+        <DataSourceDescription></DataSourceDescription>
 
         <!-- 
              The URL of the servlet.
@@ -36,7 +36,7 @@
              <DataSourceInfo> element.
           -->
         <!-- <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://localhost:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver;Catalog=/WEB-INF/Husky.xml</DataSourceInfo>-->
-        <DataSourceInfo>Provider=mondrian;DataSource=java:comp/env/jdbc/postgres;Catalog=/WEB-INF/Husky.xml</DataSourceInfo>
+        <DataSourceInfo></DataSourceInfo>
         <!-- 
              Provider name must be 'Mondrian'.
         -->
@@ -73,7 +73,9 @@
                 <!--
                 <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:odbc:MondrianFoodMart;JdbcDrivers=sun.jdbc.odbc.JdbcOdbcDriver</DataSourceInfo>
                  -->
-
+              <DataSourceDescription>Husky Data Warehouse</DataSourceDescription>
+              <DataSourceName>Provider=Mondrian;DataSource=DataSource=jdbc/postgres</DataSourceName>
+              <DataSourceInfo>Provider=mondrian;DataSource=java:comp/env/jdbc/postgres;</DataSourceInfo>
               <Definition>/WEB-INF/Husky.xml</Definition>
               <!-- <DataSourceName>Provider=Mondrian;DataSource=jdbc/postgres;</DataSourceName>-->
 
