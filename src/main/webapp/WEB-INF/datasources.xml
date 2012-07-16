@@ -10,8 +10,8 @@
   -->
 <DataSources>
 
-    <DataSource>
-        <!--
+  <DataSource>
+    <!--
              Name of the data source.
         -->
         <DataSourceName>Provider=Mondrian;DataSource=MondrianHusky;</DataSourceName>
@@ -36,7 +36,6 @@
              <DataSourceInfo> element.
           -->
         <!-- <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://localhost:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver;Catalog=/WEB-INF/Husky.xml</DataSourceInfo>-->
-        <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://10.0.2.2:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver</DataSourceInfo>
 
         <!-- 
              Provider name must be 'Mondrian'.
@@ -58,13 +57,13 @@
              A data source contains one or more catalogs.
         -->
         <Catalogs>
-            <!-- 
+          <!-- 
                 Catalog names must match the name inside the
                 schema.xml file, and must be unique across all data
                 sources defined in this datasources.xml file.
             -->
             <Catalog name="Husky">
-                <!--
+              <!--
                      Mondrian connect string for the data source. This
                      element is optional; if specified, it overrides the
                      data source's <DataSourceInfo> element. Typically,
@@ -75,13 +74,16 @@
                 <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:odbc:MondrianFoodMart;JdbcDrivers=sun.jdbc.odbc.JdbcOdbcDriver</DataSourceInfo>
                  -->
 
+
+
+              <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://10.0.2.2:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver</DataSourceInfo>
                 <!-- 
                     URI of the schema definition file.
                 -->
-                <Definition>/WEB-INF/Husky.xml</Definition>
+              <Definition>/WEB-INF/Husky.xml</Definition>
             </Catalog>
-        </Catalogs>
+    </Catalogs>
 
-    </DataSource>
+  </DataSource>
 
 </DataSources>
