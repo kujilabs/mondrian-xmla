@@ -75,7 +75,7 @@
                 <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:odbc:MondrianFoodMart;JdbcDrivers=sun.jdbc.odbc.JdbcOdbcDriver</DataSourceInfo>
                  -->
 
-              <DataSourceName>Provider=Mondrian;DataSource=jdbc/postgres;</DataSourceName>
+              <!-- <DataSourceName>Provider=Mondrian;DataSource=jdbc/postgres;</DataSourceName>-->
               <DataSourceInfo>Provider=mondrian;DataSource=java:comp/env/jdbc/postgres;</DataSourceInfo>
               <!-- <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://10.0.2.2:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver</DataSourceInfo>-->
                 <!-- 
