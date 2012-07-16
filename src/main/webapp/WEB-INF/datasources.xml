@@ -14,7 +14,7 @@
     <!--
              Name of the data source.
         -->
-        <DataSourceName>Provider=Mondrian;DataSource=MondrianHusky;</DataSourceName>
+        <DataSourceName>Provider=Mondrian;DataSource=DataSource=jdbc/postgres</DataSourceName>
 
         <!--
              Description of the data source.
@@ -36,8 +36,7 @@
              <DataSourceInfo> element.
           -->
         <!-- <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://localhost:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver;Catalog=/WEB-INF/Husky.xml</DataSourceInfo>-->
-        <DataSourceInfo></DataSourceInfo>
-
+        <DataSourceInfo>Provider=mondrian;DataSource=java:comp/env/jdbc/postgres;</DataSourceInfo>
         <!-- 
              Provider name must be 'Mondrian'.
         -->
@@ -75,13 +74,13 @@
                 <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:odbc:MondrianFoodMart;JdbcDrivers=sun.jdbc.odbc.JdbcOdbcDriver</DataSourceInfo>
                  -->
 
+              <Definition>/WEB-INF/Husky.xml</Definition>
               <!-- <DataSourceName>Provider=Mondrian;DataSource=jdbc/postgres;</DataSourceName>-->
-              <DataSourceInfo>Provider=mondrian;DataSource=java:comp/env/jdbc/postgres;</DataSourceInfo>
+
               <!-- <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://10.0.2.2:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver</DataSourceInfo>-->
                 <!-- 
                     URI of the schema definition file.
                 -->
-              <Definition>/WEB-INF/Husky.xml</Definition>
             </Catalog>
     </Catalogs>
 
