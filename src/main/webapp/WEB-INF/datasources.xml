@@ -75,7 +75,7 @@
                  -->
               <!-- <DataSourceDescription>Husky Data Warehouse</DataSourceDescription>-->
               <!-- <DataSourceName>Provider=Mondrian;DataSource=DataSource=jdbc/postgres</DataSourceName>-->
-              <DataSourceInfo>Provider=mondrian;DataSource=java:comp/env/jdbc/postgres;</DataSourceInfo>
+              <DataSourceInfo>Provider=mondrian;DataSource=java:comp/env/jdbc/postgres;Catalog=/WEB-INF/Husky.xml;</DataSourceInfo>
               <Definition>/WEB-INF/Husky.xml</Definition>
               <!-- <DataSourceName>Provider=Mondrian;DataSource=jdbc/postgres;</DataSourceName>-->
 
