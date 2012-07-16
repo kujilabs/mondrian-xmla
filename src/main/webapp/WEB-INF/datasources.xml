@@ -36,6 +36,7 @@
              <DataSourceInfo> element.
           -->
         <!-- <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:postgresql://localhost:5432/fido_development;JdbcUser=postgres;JdbcDrivers=org.postgresql.Driver;Catalog=/WEB-INF/Husky.xml</DataSourceInfo>-->
+        <DataSourceInfo></DataSourceInfo>
 
         <!-- 
              Provider name must be 'Mondrian'.
