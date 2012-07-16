@@ -73,8 +73,8 @@
                 <!--
                 <DataSourceInfo>Provider=mondrian;Jdbc=jdbc:odbc:MondrianFoodMart;JdbcDrivers=sun.jdbc.odbc.JdbcOdbcDriver</DataSourceInfo>
                  -->
-              <DataSourceDescription>Husky Data Warehouse</DataSourceDescription>
-              <DataSourceName>Provider=Mondrian;DataSource=DataSource=jdbc/postgres</DataSourceName>
+              <!-- <DataSourceDescription>Husky Data Warehouse</DataSourceDescription>-->
+              <!-- <DataSourceName>Provider=Mondrian;DataSource=DataSource=jdbc/postgres</DataSourceName>-->
               <DataSourceInfo>Provider=mondrian;DataSource=java:comp/env/jdbc/postgres;</DataSourceInfo>
               <Definition>/WEB-INF/Husky.xml</Definition>
               <!-- <DataSourceName>Provider=Mondrian;DataSource=jdbc/postgres;</DataSourceName>-->
