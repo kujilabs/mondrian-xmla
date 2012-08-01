@@ -4,22 +4,20 @@
     <Hierarchy hasAll="false" primaryKey="id">
       <Table name="date_dimension" schema="public"/>
       <Level name="Year" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears"/>
-      <Level name="Quarter" column="quarter" nameColumn="quarter_and_year" uniqueMembers="false" levelType="TimeQuarters"/>
       <Level name="Month" column="month_number" type="Numeric" nameColumn="month_name" uniqueMembers="false" levelType="TimeMonths"/>
     </Hierarchy>
   </Dimension>
   <Dimension name="Entity" highCardinality="false">
-    <Hierarchy hasAll="true" allMemberName="All Entities" primaryKey="id">
+    <Hierarchy hasAll="false" primaryKey="id">
       <Table name="entity_dimension"/>
-      <Level name="Name" column="name" uniqueMembers="true">
-        <Property name="Account Name" column="account_name"/>
-      </Level>
+      <Level name="Account Name" column="account_name" uniqueMembers="true"/>
+      <Level name="Name" column="name"/>
     </Hierarchy>
   </Dimension>
   <Dimension name="Category" highCardinality="false">
     <Hierarchy hasAll="true" allMemberName="All Categories" primaryKey="id">
       <Table name="category_dimension"/>
-      <Level name="Category ID" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Category Name" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="category_hierarchy_bridge"/>
         </Closure>
@@ -29,7 +27,7 @@
   <Dimension name="Subject" highCardinality="false">
     <Hierarchy hasAll="true" allMemberName="All Subjects" primaryKey="id">
       <Table name="subject_dimension"/>
-      <Level name="Subject ID" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Subject Name" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="subject_hierarchy_bridge"/>
         </Closure>
@@ -80,6 +78,15 @@
     </CalculatedMember>
     <CalculatedMember name="Scope 3 Carbon" dimension="Measures">
       <Formula>[Measures].[Scope 3 Carbon Factor] * [Measures].[Amount]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Total Carbon" dimension="Measures">
+      <Formula>[Measures].[Scope 1 Carbon] + [Measures].[Scope 2 Carbon] + [Measures].[Scope 3 Carbon]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Direct Carbon" dimension="Measures">
+      <Formula>[Measures].[Scope 1 Carbon]</Formula>
+    </CalculatedMember>
+    <CalculatedMember name="Indirect Carbon" dimension="Measures">
+      <Formula>[Measures].[Scope 2 Carbon] + [Measures].[Scope 3 Carbon]</Formula>
     </CalculatedMember>
     <CalculatedMember name="Expense" dimension="Measures">
       <Formula>[Measures].[Expense Factor] * [Measures].[Amount]</Formula>
