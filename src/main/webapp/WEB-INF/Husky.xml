@@ -41,12 +41,12 @@
     <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
     <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
     <Measure name="Amount" column="amount" aggregator="sum"/>
-    <Measure name="Number" column="number_factor" aggregator="sum" visible="true"/>
-    <Measure name="Mass" column="mass_factor" aggregator="sum" visible="true"/>
-    <Measure name="Volume" column="volume_factor" aggregator="sum" visible="true"/>
-    <Measure name="Area" column="area_factor" aggregator="sum" visible="true"/>
-    <Measure name="Distance" column="distance_factor" aggregator="sum" visible="true"/>
-    <Measure name="Energy" column="energy_factor" aggregator="sum" visible="true"/>
+    <Measure name="Number" column="number" aggregator="sum" visible="true"/>
+    <Measure name="Mass" column="mass" aggregator="sum" visible="true"/>
+    <Measure name="Volume" column="volume" aggregator="sum" visible="true"/>
+    <Measure name="Area" column="area" aggregator="sum" visible="true"/>
+    <Measure name="Distance" column="distance" aggregator="sum" visible="true"/>
+    <Measure name="Energy" column="energy" aggregator="sum" visible="true"/>
     <Measure name="Scope 1 Carbon" column="scope_1_carbon" aggregator="sum" visible="true"/>
     <Measure name="Scope 2 Carbon" column="scope_2_carbon" aggregator="sum" visible="true"/>
     <Measure name="Scope 3 Carbon" column="scope_3_carbon" aggregator="sum" visible="true"/>
