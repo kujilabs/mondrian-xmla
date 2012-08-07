@@ -41,44 +41,17 @@
     <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
     <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
     <Measure name="Amount" column="amount" aggregator="sum"/>
-    <Measure name="Number Factor" column="number_factor" aggregator="avg" visible="false"/>
-    <Measure name="Mass Factor" column="mass_factor" aggregator="avg" visible="false"/>
-    <Measure name="Volume Factor" column="volume_factor" aggregator="avg" visible="false"/>
-    <Measure name="Area Factor" column="area_factor" aggregator="avg" visible="false"/>
-    <Measure name="Distance Factor" column="distance_factor" aggregator="avg" visible="false"/>
-    <Measure name="Energy Factor" column="energy_factor" aggregator="avg" visible="false"/>
-    <Measure name="Scope 1 Carbon Factor" column="scope_1_carbon_factor" aggregator="avg" visible="false"/>
-    <Measure name="Scope 2 Carbon Factor" column="scope_2_carbon_factor" aggregator="avg" visible="false"/>
-    <Measure name="Scope 3 Carbon Factor" column="scope_3_carbon_factor" aggregator="avg" visible="false"/>
-    <Measure name="Expense Factor" column="expense_factor" aggregator="avg" visible="false"/>
-    <Measure name="Revenue Factor" column="revenue_factor" aggregator="avg" visible="false"/>
-    <CalculatedMember name="Number" dimension="Measures">
-      <Formula>[Measures].[Number Factor] * [Measures].[Amount]</Formula>
-    </CalculatedMember>
-    <CalculatedMember name="Mass" dimension="Measures">
-      <Formula>[Measures].[Mass Factor] * [Measures].[Amount]</Formula>
-    </CalculatedMember>
-    <CalculatedMember name="Area" dimension="Measures">
-      <Formula>[Measures].[Area Factor] * [Measures].[Amount]</Formula>
-    </CalculatedMember>
-    <CalculatedMember name="Volume" dimension="Measures">
-      <Formula>[Measures].[Volume Factor] * [Measures].[Amount]</Formula>
-    </CalculatedMember>
-    <CalculatedMember name="Distance" dimension="Measures">
-      <Formula>[Measures].[Distance Factor] * [Measures].[Amount]</Formula>
-    </CalculatedMember>
-    <CalculatedMember name="Energy" dimension="Measures">
-      <Formula>[Measures].[Energy Factor] * [Measures].[Amount]</Formula>
-    </CalculatedMember>
-    <CalculatedMember name="Scope 1 Carbon" dimension="Measures">
-      <Formula>[Measures].[Scope 1 Carbon Factor] * [Measures].[Amount]</Formula>
-    </CalculatedMember>
-    <CalculatedMember name="Scope 2 Carbon" dimension="Measures">
-      <Formula>[Measures].[Scope 2 Carbon Factor] * [Measures].[Amount]</Formula>
-    </CalculatedMember>
-    <CalculatedMember name="Scope 3 Carbon" dimension="Measures">
-      <Formula>[Measures].[Scope 3 Carbon Factor] * [Measures].[Amount]</Formula>
-    </CalculatedMember>
+    <Measure name="Number" column="number_factor" aggregator="sum" visible="true"/>
+    <Measure name="Mass" column="mass_factor" aggregator="sum" visible="true"/>
+    <Measure name="Volume" column="volume_factor" aggregator="sum" visible="true"/>
+    <Measure name="Area" column="area_factor" aggregator="sum" visible="true"/>
+    <Measure name="Distance" column="distance_factor" aggregator="sum" visible="true"/>
+    <Measure name="Energy" column="energy_factor" aggregator="sum" visible="true"/>
+    <Measure name="Scope 1 Carbon" column="scope_1_carbon" aggregator="sum" visible="true"/>
+    <Measure name="Scope 2 Carbon" column="scope_2_carbon" aggregator="sum" visible="true"/>
+    <Measure name="Scope 3 Carbon" column="scope_3_carbon" aggregator="sum" visible="true"/>
+    <Measure name="Expense" column="expense" aggregator="sum" visible="true"/>
+    <Measure name="Revenue" column="revenue" aggregator="sum" visible="true"/>
     <CalculatedMember name="Total Carbon" dimension="Measures">
       <Formula>[Measures].[Scope 1 Carbon] + [Measures].[Scope 2 Carbon] + [Measures].[Scope 3 Carbon]</Formula>
     </CalculatedMember>
@@ -87,12 +60,6 @@
     </CalculatedMember>
     <CalculatedMember name="Indirect Carbon" dimension="Measures">
       <Formula>[Measures].[Scope 2 Carbon] + [Measures].[Scope 3 Carbon]</Formula>
-    </CalculatedMember>
-    <CalculatedMember name="Expense" dimension="Measures">
-      <Formula>[Measures].[Expense Factor] * [Measures].[Amount]</Formula>
-    </CalculatedMember>
-    <CalculatedMember name="Revenue" dimension="Measures">
-      <Formula>[Measures].[Revenue Factor] * [Measures].[Amount]</Formula>
     </CalculatedMember>
     <CalculatedMember name="Net Profit" dimension="Measures">
       <Formula>[Measures].[Revenue] - [Measures].[Expense]</Formula>
