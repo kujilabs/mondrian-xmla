@@ -35,7 +35,7 @@
     </Hierarchy>
   </Dimension>
   <Cube name="Carbon">
-    <Table name="conversion_facts" schema="public"/>
+    <Table name="compressed_conversion_facts" schema="public"/>
     <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
     <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
     <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
