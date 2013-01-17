@@ -13,7 +13,7 @@
       <Level name="Account Name" column="account_name" uniqueMembers="true"/>
       <Level name="Name" column="name"/>
     </Hierarchy>
-    <Hierarchy name="Ops" hasAll="false" primaryKey="id">
+    <Hierarchy name="Entity Ops" hasAll="false" primaryKey="id">
       <Table name="entity_dimension"/>
       <Level name="Id" column="ops_id"/>
     </Hierarchy>
@@ -27,7 +27,7 @@
         </Closure>
       </Level>
     </Hierarchy>
-    <Hierarchy name="Ops" hasAll="true" allMemberName="All Categories" primaryKey="id">
+    <Hierarchy name="Category Ops" hasAll="true" allMemberName="All Categories" primaryKey="id">
       <Table name="category_dimension"/>
       <Level name="Id" column="ops_id" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
@@ -45,7 +45,7 @@
         </Closure>
       </Level>
     </Hierarchy>
-    <Hierarchy name="Ops" hasAll="true" allMemberName="All Subjects" primaryKey="id">
+    <Hierarchy name="Subject Ops" hasAll="true" allMemberName="All Subjects" primaryKey="id">
       <Table name="subject_dimension"/>
       <Level name="Id" column="ops_id" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
