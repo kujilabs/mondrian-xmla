@@ -15,7 +15,8 @@
     </Hierarchy>
     <Hierarchy name="Ops" hasAll="false" primaryKey="id">
       <Table name="entity_dimension"/>
-      <Level name="Id" column="id" nameColumn="name"/>
+      <Level name="Account Id" column="account_ops_id_string" uniqueMembers="true"/>
+      <Level name="Id" column="ops_id" nameColumn="ops_id_string" uniqueMembers="true"/>
     </Hierarchy>
   </Dimension>
   <Dimension name="Category" highCardinality="false">
@@ -30,7 +31,7 @@
     </Hierarchy>
     <Hierarchy name="Ops" hasAll="true" allMemberName="All Categories" primaryKey="id">
       <Table name="category_dimension"/>
-      <Level name="Id" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Id" column="ops_id" nameColumn="ops_id_string" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="category_hierarchy_bridge"/>
         </Closure>
@@ -48,7 +49,7 @@
     </Hierarchy>
     <Hierarchy name="Ops" hasAll="true" allMemberName="All Subjects" primaryKey="id">
       <Table name="subject_dimension"/>
-      <Level name="Id" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Id" column="ops_id" nameColumn="ops_id_string" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="subject_hierarchy_bridge"/>
         </Closure>
@@ -75,9 +76,6 @@
     <Measure name="Revenue" column="revenue" aggregator="sum" visible="true"/>
     <CalculatedMember name="Total Carbon" dimension="Measures">
       <Formula>[Measures].[Scope 1 Carbon] + [Measures].[Scope 2 Carbon] + [Measures].[Scope 3 Carbon]</Formula>
-    </CalculatedMember>
-    <CalculatedMember name="Category Ops Id" dimension="Measures">
-      <Formula>[Category].CurrentMember.Properties("OpsId")</Formula>
     </CalculatedMember>
     <CalculatedMember name="Direct Carbon" dimension="Measures">
       <Formula>[Measures].[Scope 1 Carbon]</Formula>
