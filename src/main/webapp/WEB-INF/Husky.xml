@@ -15,7 +15,7 @@
     </Hierarchy>
     <Hierarchy name="Ops" hasAll="false" primaryKey="id">
       <Table name="entity_dimension"/>
-      <Level name="Id" column="ops_id" nameColumn="ops_id"/>
+      <Level name="Id" column="ops_id"/>
     </Hierarchy>
   </Dimension>
   <Dimension name="Category" highCardinality="false">
@@ -29,7 +29,7 @@
     </Hierarchy>
     <Hierarchy name="Ops" hasAll="true" allMemberName="All Categories" primaryKey="id">
       <Table name="category_dimension"/>
-      <Level name="Id" column="ops_id" nameColumn="ops_id" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Id" column="ops_id" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="category_hierarchy_bridge"/>
         </Closure>
