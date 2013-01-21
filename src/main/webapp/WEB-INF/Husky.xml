@@ -22,15 +22,6 @@
   <Dimension name="Category" highCardinality="false">
     <Hierarchy hasAll="true" allMemberName="All Categories" primaryKey="id">
       <Table name="category_dimension"/>
-      <Level name="Category Name" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
-        <Property name="OpsId" column="ops_id"/>
-        <Closure parentColumn="parent_id" childColumn="child_id">
-          <Table name="category_hierarchy_bridge"/>
-        </Closure>
-      </Level>
-    </Hierarchy>
-    <Hierarchy name="Ops" hasAll="true" allMemberName="All Categories" primaryKey="id">
-      <Table name="category_dimension"/>
       <Level name="Id" column="ops_id" nameColumn="ops_id_string" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="category_hierarchy_bridge"/>
