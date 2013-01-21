@@ -22,7 +22,15 @@
   <Dimension name="Category" highCardinality="false">
     <Hierarchy hasAll="true" allMemberName="All Categories" primaryKey="id">
       <Table name="category_dimension"/>
-      <Level name="Category Name" column="id" nameColumn="ops_id_string" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Category Id" column="id" nameColumn="ops_id_string" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+        <Closure parentColumn="parent_id" childColumn="child_id">
+          <Table name="category_hierarchy_bridge"/>
+        </Closure>
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Name" hasAll="true" allMemberName="All Categories" primaryKey="id">
+      <Table name="category_dimension"/>
+      <Level name="Category Name" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="category_hierarchy_bridge"/>
         </Closure>
