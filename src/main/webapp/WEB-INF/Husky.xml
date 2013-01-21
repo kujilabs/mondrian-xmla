@@ -16,21 +16,21 @@
     <Hierarchy name="Ops" hasAll="false" primaryKey="id">
       <Table name="entity_dimension"/>
       <Level name="Account Id" column="account_ops_id_string" uniqueMembers="true"/>
-      <Level name="Id" column="ops_id" nameColumn="ops_id_string" uniqueMembers="true"/>
+      <Level name="Id" column="id" nameColumn="ops_id_string" uniqueMembers="true"/>
     </Hierarchy>
   </Dimension>
   <Dimension name="Category" highCardinality="false">
     <Hierarchy hasAll="true" allMemberName="All Categories" primaryKey="id">
       <Table name="category_dimension"/>
-      <Level name="Category Id" column="id" nameColumn="ops_id_string" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Category Name" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="category_hierarchy_bridge"/>
         </Closure>
       </Level>
     </Hierarchy>
-    <Hierarchy name="Name" hasAll="true" allMemberName="All Categories" primaryKey="id">
+    <Hierarchy name="Ops" hasAll="true" allMemberName="All Categories" primaryKey="id">
       <Table name="category_dimension"/>
-      <Level name="Category Name" column="id" nameColumn="name" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Category Id" column="id" nameColumn="ops_id_string" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="category_hierarchy_bridge"/>
         </Closure>
@@ -48,7 +48,7 @@
     </Hierarchy>
     <Hierarchy name="Ops" hasAll="true" allMemberName="All Subjects" primaryKey="id">
       <Table name="subject_dimension"/>
-      <Level name="Id" column="ops_id" nameColumn="ops_id_string" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Id" column="id" nameColumn="ops_id_string" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="subject_hierarchy_bridge"/>
         </Closure>
