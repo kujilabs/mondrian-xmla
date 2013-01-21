@@ -30,7 +30,7 @@
     </Hierarchy>
     <Hierarchy name="Ops" hasAll="true" allMemberName="All Categories" primaryKey="id">
       <Table name="category_dimension"/>
-      <Level name="Category Id" column="ops_id" type="Numeric" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
+      <Level name="Category Id" column="id" nameColumn="ops_id_string" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
           <Table name="category_hierarchy_bridge"/>
         </Closure>
