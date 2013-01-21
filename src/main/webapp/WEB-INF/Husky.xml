@@ -6,11 +6,6 @@
       <Level name="Year" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears"/>
       <Level name="Month" column="month_number" type="Numeric" nameColumn="month_name" uniqueMembers="false" levelType="TimeMonths"/>
     </Hierarchy>
-    <Hierarchy name="Number" hasAll="false" primaryKey="id">
-      <Table name="date_dimension" schema="public"/>
-      <Level name="Year" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears"/>
-      <Level name="Month" column="month_number" type="Numeric" uniqueMembers="false" levelType="TimeMonths"/>
-    </Hierarchy>
   </Dimension>
   <Dimension name="Entity" highCardinality="false">
     <Hierarchy hasAll="false" primaryKey="id">
