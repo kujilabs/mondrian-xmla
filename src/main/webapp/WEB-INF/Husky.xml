@@ -28,7 +28,7 @@
         </Closure>
       </Level>
     </Hierarchy>
-    <Hierarchy name="Ops" hasAll="true" allMemberName="All Categories" primaryKey="id">
+    <Hierarchy name="Ops" hasAll="true" allMemberName="0" primaryKey="id">
       <Table name="category_dimension"/>
       <Level name="Id" column="id" nameColumn="ops_id_string" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
@@ -46,7 +46,7 @@
         </Closure>
       </Level>
     </Hierarchy>
-    <Hierarchy name="Ops" hasAll="true" allMemberName="All Subjects" primaryKey="id">
+    <Hierarchy name="Ops" hasAll="true" allMemberName="0" primaryKey="id">
       <Table name="subject_dimension"/>
       <Level name="Id" column="id" nameColumn="ops_id_string" uniqueMembers="true" parentColumn="parent_id" nullParentValue="0">
         <Closure parentColumn="parent_id" childColumn="child_id">
