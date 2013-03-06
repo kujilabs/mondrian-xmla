@@ -8,11 +8,6 @@
     </Hierarchy>
   </Dimension>
   <Dimension name="Entity" highCardinality="false">
-    <Hierarchy hasAll="false" primaryKey="id">
-      <Table name="entity_dimension"/>
-      <Level name="Account Name" column="account_name" uniqueMembers="true"/>
-      <Level name="Name" column="name"/>
-    </Hierarchy>
     <Hierarchy name="Ops" hasAll="false" primaryKey="id">
       <Table name="entity_dimension"/>
       <Level name="Id" column="ops_id" uniqueMembers="true"/>
