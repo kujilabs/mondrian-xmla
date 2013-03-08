@@ -49,24 +49,79 @@
       </Level>
     </Hierarchy>
   </Dimension>
-  <Cube name="Carbon">
-    <Table name="compressed_conversion_facts" schema="public"/>
+  <Cube name="Mass">
+    <Table name="compressed_mass_facts" schema="public"/>
     <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
     <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
     <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
     <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
-    <Measure name="Amount" column="amount" aggregator="sum"/>
-    <Measure name="Number" column="number" aggregator="sum" visible="true"/>
     <Measure name="Mass" column="mass" aggregator="sum" visible="true"/>
+  </Cube>
+  <Cube name="Volume">
+    <Table name="compressed_volume_facts" schema="public"/>
+    <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
+    <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
+    <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
+    <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
     <Measure name="Volume" column="volume" aggregator="sum" visible="true"/>
-    <Measure name="Area" column="area" aggregator="sum" visible="true"/>
-    <Measure name="Distance" column="distance" aggregator="sum" visible="true"/>
+  </Cube>
+  <Cube name="Energy">
+    <Table name="compressed_energy_facts" schema="public"/>
+    <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
+    <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
+    <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
+    <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
     <Measure name="Energy" column="energy" aggregator="sum" visible="true"/>
+  </Cube>
+  <Cube name="Number">
+    <Table name="compressed_number_facts" schema="public"/>
+    <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
+    <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
+    <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
+    <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
+    <Measure name="Number" column="number" aggregator="sum" visible="true"/>
+  </Cube>
+  <Cube name="Area">
+    <Table name="compressed_area_facts" schema="public"/>
+    <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
+    <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
+    <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
+    <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
+    <Measure name="Area" column="area" aggregator="sum" visible="true"/>
+  </Cube>
+  <Cube name="Distance">
+    <Table name="compressed_distance_facts" schema="public"/>
+    <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
+    <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
+    <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
+    <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
+    <Measure name="Distance" column="distance" aggregator="sum" visible="true"/>
+  </Cube>
+  <Cube name="Expense">
+    <Table name="compressed_expense_facts" schema="public"/>
+    <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
+    <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
+    <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
+    <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
+    <Measure name="Expense" column="expense" aggregator="sum" visible="true"/>
+  </Cube>
+  <Cube name="Revenue">
+    <Table name="compressed_revenue_facts" schema="public"/>
+    <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
+    <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
+    <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
+    <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
+    <Measure name="Revenue" column="revenue" aggregator="sum" visible="true"/>
+  </Cube>
+  <Cube name="Carbon">
+    <Table name="compressed_carbon_facts" schema="public"/>
+    <DimensionUsage name="Entity" source="Entity" foreignKey="entity_id"/>
+    <DimensionUsage name="Date" source="Date" foreignKey="date_id"/>
+    <DimensionUsage name="Category" source="Category" foreignKey="category_id"/>
+    <DimensionUsage name="Subject" source="Subject" foreignKey="subject_id"/>
     <Measure name="Scope 1 Carbon" column="scope_1_carbon" aggregator="sum" visible="true"/>
     <Measure name="Scope 2 Carbon" column="scope_2_carbon" aggregator="sum" visible="true"/>
     <Measure name="Scope 3 Carbon" column="scope_3_carbon" aggregator="sum" visible="true"/>
-    <Measure name="Expense" column="expense" aggregator="sum" visible="true"/>
-    <Measure name="Revenue" column="revenue" aggregator="sum" visible="true"/>
     <CalculatedMember name="Total Carbon" dimension="Measures">
       <Formula>[Measures].[Scope 1 Carbon] + [Measures].[Scope 2 Carbon] + [Measures].[Scope 3 Carbon]</Formula>
     </CalculatedMember>
@@ -75,9 +130,6 @@
     </CalculatedMember>
     <CalculatedMember name="Indirect Carbon" dimension="Measures">
       <Formula>[Measures].[Scope 2 Carbon] + [Measures].[Scope 3 Carbon]</Formula>
-    </CalculatedMember>
-    <CalculatedMember name="Net Profit" dimension="Measures">
-      <Formula>[Measures].[Revenue] - [Measures].[Expense]</Formula>
     </CalculatedMember>
   </Cube>
 </Schema>
