@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Schema name="Husky">
   <Dimension name="Date" type="TimeDimension" highCardinality="false">
-    <Hierarchy hasAll="false" primaryKey="id">
+    <Hierarchy hasAll="false" primaryKey="monthstamp">
       <Table name="date_dimension" schema="public"/>
       <Level name="Year" column="year" type="Numeric" uniqueMembers="true" levelType="TimeYears"/>
       <Level name="Month" column="month_number" type="Numeric" uniqueMembers="false" levelType="TimeMonths"/>
